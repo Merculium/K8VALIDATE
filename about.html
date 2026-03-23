@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Alex Morgan, Validation Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PAGE HERO (smaller than homepage) ── */
+    .page-hero {
+      padding: 10rem 5vw 5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .page-hero .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--rule) 1px, transparent 1px),
+        linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 100% 100% at 0% 50%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 100% 100% at 0% 50%, black 30%, transparent 80%);
+    }
+
+    .page-hero-content { position: relative; max-width: 720px; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .back-link::before {
+      content: '←';
+      font-size: 0.9rem;
+    }
+
+    /* ── BIO ── */
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .bio-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .bio-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--steel);
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bio-photo-placeholder {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* Replace the placeholder with your actual photo:
+       <img src="photo.jpg" alt="Alex Morgan" style="width:100%;height:100%;object-fit:cover"> */
+
+    .bio-sidebar-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .bio-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .bio-info-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .bio-info-value {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .bio-body h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-body p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+    }
+
+    .bio-body p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .bio-body blockquote {
+      border-left: 2px solid var(--accent);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--offwhite);
+      line-height: 1.6;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--steel); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .skill-group h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-list li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .skill-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* ── CERTIFICATIONS & EDUCATION ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .cert-block h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cert-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cert-item:last-child { border-bottom: none; }
+
+    .cert-badge {
+      width: 42px;
+      height: 42px;
+      background: var(--steel);
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cert-info h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--offwhite);
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-info p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    /* ── INDUSTRIES ── */
+    #industries { background: var(--steel); }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      margin-top: 1rem;
+    }
+
+    .industry-card {
+      background: var(--navy);
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .industry-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .industry-card:hover { transform: translateY(-3px); }
+    .industry-card:hover::before { opacity: 1; }
+
+    .industry-icon { font-size: 1.6rem; }
+
+    .industry-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--offwhite);
+    }
+
+    .industry-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA ── */
+    .cta-band {
+      padding: 5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--rule);
+    }
+
+    .cta-band h2 { margin-bottom: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .bio-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .bio-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .cert-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-hero { padding: 8rem 5vw 3.5rem; }
+
+      .bio-sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-photo {
+        aspect-ratio: 4/3;
+        max-height: 260px;
+      }
+
+      .cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-band .btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">AM // Validation</div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="nav-links">
+      <li><a href="index.html"          onclick="closeMenu()">Home</a></li>
+      <li><a href="index.html#services"   onclick="closeMenu()">Services</a></li>
+      <li><a href="index.html#experience" onclick="closeMenu()">Experience</a></li>
+      <li><a href="index.html#contact"    onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="page-hero-content">
+      <a href="index.html" class="back-link">Back to Home</a>
+      <div class="hero-tag">About Me</div>
+      <h1>The person<br>behind the <em>protocols.</em></h1>
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <section id="bio">
+    <div class="section-label">Background</div>
+    <div class="bio-layout">
+
+      <div class="bio-sidebar fade-in">
+        <div class="bio-photo">
+          <div class="bio-photo-placeholder">
+            Your photo<br>here<br><br>
+            Replace this div<br>with an &lt;img&gt; tag
+          </div>
+        </div>
+        <div class="bio-sidebar-info">
+          <div class="bio-info-item">
+            <span class="bio-info-label">Based in</span>
+            <span class="bio-info-value">[Your City, Country]</span>
+          </div>
+          <div class="bio-info-item">
+            <span class="bio-info-label">Available for</span>
+            <span class="bio-info-value">On-site & Remote</span>
+          </div>
+          <div class="bio-info-item">
+            <span class="bio-info-label">Languages</span>
+            <span class="bio-info-value">English, [Other]</span>
+          </div>
+          <div class="bio-info-item">
+            <span class="bio-info-label">Experience</span>
+            <span class="bio-info-value">10+ Years</span>
+          </div>
+          <div class="bio-info-item">
+            <span class="bio-info-label">Contact</span>
+            <span class="bio-info-value">you@email.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-body fade-in">
+        <h2>A career built on getting it right the first time.</h2>
+
+        <p>
+          I started my career on the floor of a <strong>sterile manufacturing facility</strong>,
+          executing protocols under pressure and learning very quickly that in this industry,
+          documentation isn't a formality — it's the product. A validation package that won't
+          survive a regulatory inspection is worthless, no matter how well the equipment runs.
+        </p>
+
+        <blockquote>
+          "If it's not documented, it didn't happen. If the documentation is wrong, neither did you."
+        </blockquote>
+
+        <p>
+          Over the following decade, I moved through roles of increasing responsibility —
+          from technician to engineer to lead — across facilities ranging from small biotech
+          startups to large multinational pharmaceutical manufacturers. I've run
+          <strong>IQ/OQ/PQ campaigns</strong> on everything from single HVAC units to full
+          facility buildouts, and I've sat across the table from FDA and EMA inspectors more
+          times than I can count.
+        </p>
+
+        <p>
+          In <strong>2020</strong>, I went independent. The reason was simple: I found I could
+          bring more value — and more flexibility — to clients as a consultant than in any
+          single in-house role. I work with a small number of clients at a time, which means
+          every engagement gets my full attention.
+        </p>
+
+        <p>
+          Outside of work, I'm passionate about <strong>[your interests here]</strong>.
+          I believe the best validation professionals are precise thinkers who also know how
+          to communicate clearly — with engineers, with QA, with management, and with regulators.
+          That balance is what I try to bring to every project.
+        </p>
+
+        <br>
+        <a href="index.html#contact" class="btn">Work with me</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">Key Competencies</div>
+    <h2 class="fade-in">What I bring to the table.</h2>
+    <br>
+    <div class="skills-grid">
+
+      <div class="skill-group fade-in">
+        <h3>Validation & Qualification</h3>
+        <ul class="skill-list">
+          <li>DQ / IQ / OQ / PQ execution</li>
+          <li>Validation strategy &amp; planning</li>
+          <li>Risk-based approach (ICH Q9)</li>
+          <li>Requalification &amp; lifecycle management</li>
+          <li>Validation Master Plan (VMP) authoring</li>
+          <li>Process Performance Qualification (PPQ)</li>
+        </ul>
+      </div>
+
+      <div class="skill-group fade-in">
+        <h3>HVAC &amp; Utilities</h3>
+        <ul class="skill-list">
+          <li>HVAC system qualification (ISO 14644)</li>
+          <li>Cleanroom classification &amp; monitoring</li>
+          <li>Pressure differential mapping</li>
+          <li>Airflow visualisation studies (smoke)</li>
+          <li>Temperature &amp; humidity uniformity</li>
+          <li>Purified Water &amp; WFI system validation</li>
+        </ul>
+      </div>
+
+      <div class="skill-group fade-in">
+        <h3>Regulatory &amp; Compliance</h3>
+        <ul class="skill-list">
+          <li>FDA 21 CFR Parts 210, 211, 820</li>
+          <li>EU GMP Annex 1, 11, 15</li>
+          <li>ICH Q8, Q9, Q10 guidelines</li>
+          <li>GAMP 5 computer system validation</li>
+          <li>Pre-inspection gap assessments</li>
+          <li>CAPA writing &amp; deviation management</li>
+        </ul>
+      </div>
+
+      <div class="skill-group fade-in">
+        <h3>Documentation &amp; Tools</h3>
+        <ul class="skill-list">
+          <li>Protocol &amp; report authoring</li>
+          <li>SOP writing &amp; revision</li>
+          <li>Risk assessment (FMEA, HACCP)</li>
+          <li>Electronic quality management systems</li>
+          <li>Change control management</li>
+          <li>Technical writing &amp; review</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS & EDUCATION -->
+  <section id="certifications">
+    <div class="section-label">Credentials</div>
+    <h2 class="fade-in">Education &amp; certifications.</h2>
+    <br>
+    <div class="cert-grid fade-in">
+
+      <div class="cert-block">
+        <h3>Certifications</h3>
+
+        <div class="cert-item">
+          <div class="cert-badge">🎓</div>
+          <div class="cert-info">
+            <h4>Certified Validation Professional (CVP)</h4>
+            <p>ISPE · Issued [Year]</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">📋</div>
+          <div class="cert-info">
+            <h4>GAMP 5 Computer System Validation</h4>
+            <p>ISPE · Issued [Year]</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">⚗️</div>
+          <div class="cert-info">
+            <h4>ICH Q9 Quality Risk Management</h4>
+            <p>PDA Training · Issued [Year]</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">🏭</div>
+          <div class="cert-info">
+            <h4>EU GMP Annex 1 Sterile Manufacture</h4>
+            <p>Industry Training · Issued [Year]</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cert-block">
+        <h3>Education</h3>
+
+        <div class="cert-item">
+          <div class="cert-badge">🎓</div>
+          <div class="cert-info">
+            <h4>B.Sc. [Your Degree]</h4>
+            <p>[University Name] · [Year]</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">📘</div>
+          <div class="cert-info">
+            <h4>[Additional Qualification or Course]</h4>
+            <p>[Institution] · [Year]</p>
+          </div>
+        </div>
+
+        <div class="cert-item">
+          <div class="cert-badge">🌐</div>
+          <div class="cert-info">
+            <h4>ISPE Member</h4>
+            <p>International Society for Pharmaceutical Engineering</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="section-label">Sectors</div>
+    <h2 class="fade-in">Industries I've worked in.</h2>
+    <br>
+    <div class="industry-grid">
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">💊</div>
+        <h3>Pharmaceutical</h3>
+        <p>Solid dose, sterile injectables, API manufacturing, OSD facilities.</p>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">🧬</div>
+        <h3>Biotechnology</h3>
+        <p>Biologics, cell &amp; gene therapy, fermentation, fill-finish operations.</p>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">🌡️</div>
+        <h3>HVAC &amp; Cleanrooms</h3>
+        <p>ISO 5–8 classified environments, controlled areas, containment suites.</p>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">🏥</div>
+        <h3>Medical Devices</h3>
+        <p>FDA 21 CFR Part 820, ISO 13485, design &amp; process validation.</p>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">🧪</div>
+        <h3>Contract Manufacturing</h3>
+        <p>CMO/CDMO environments, multi-product facilities, tech transfer support.</p>
+      </div>
+
+      <div class="industry-card fade-in">
+        <div class="industry-icon">🔬</div>
+        <h3>Research &amp; Development</h3>
+        <p>Early-phase facilities, lab qualification, scale-up to commercial.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band fade-in">
+    <h2>Ready to work together?</h2>
+    <a href="index.html#contact" class="btn">Get in Touch</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Alex Morgan. All rights reserved.</p>
+    <p>Built with plain HTML & CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    // ── Hamburger menu ──
+    const toggle = document.getElementById('nav-toggle');
+    const nav    = document.getElementById('main-nav');
+    const links  = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      nav.classList.remove('open');
+      links.classList.remove('open');
+    }
+
+    // ── Fade-in on scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
