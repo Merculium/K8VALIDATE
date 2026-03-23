@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Morgan — Validation Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">AM // Validation</div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="nav-links">
+      <li><a href="#about"      onclick="closeMenu()">About</a></li>
+      <li><a href="#services"   onclick="closeMenu()">Services</a></li>
+      <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+      <li><a href="#contact"    onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-accent-line"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Validation Consultant</div>
+      <h1>Alex<br><em>Morgan</em></h1>
+      <p class="hero-sub">
+        Specializing in HVAC qualification, pharmaceutical validation,
+        and GMP compliance. Helping facilities meet regulatory standards
+        — on time, documented, and audit-ready.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact"    class="btn">Get in Touch</a>
+        <a href="#experience" class="btn btn-ghost">View Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="about-layout">
+      <div class="about-text fade-in">
+        <h2>Precision in every protocol.</h2>
+        <p>With over <strong>10 years</strong> in the field, I help pharmaceutical manufacturers, biotech facilities, and cleanroom operations achieve and maintain regulatory compliance.</p>
+        <p>My work spans <strong>IQ/OQ/PQ validation</strong>, HVAC qualification for ISO-classified environments, and full documentation packages that hold up under FDA and EMA scrutiny.</p>
+        <p>Based in <strong>[Your City]</strong>, available for on-site and remote engagements worldwide.</p>
+        <br>
+        <a href="mailto:you@email.com" class="btn">Download CV</a>
+      </div>
+      <div class="about-stats fade-in">
+        <div class="stat">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Failed Audits</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">FDA</div>
+          <div class="stat-label">& EMA Compliant</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-label">Services</div>
+    <h2 class="fade-in">What I do.</h2>
+    <br>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🌡️</div>
+        <h3>HVAC Qualification</h3>
+        <p>IQ/OQ/PQ for HVAC systems in pharmaceutical and cleanroom environments. Airflow studies, pressure differential mapping, temperature uniformity testing.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🧪</div>
+        <h3>Process Validation</h3>
+        <p>Full validation lifecycle support for manufacturing processes. Risk assessments, protocol development, execution, and final reports.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📋</div>
+        <h3>Documentation & SOPs</h3>
+        <p>Writing and reviewing validation master plans, protocols, SOPs, and deviation reports that satisfy regulatory requirements.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🔍</div>
+        <h3>Audit Readiness</h3>
+        <p>Gap assessments and pre-inspection support. Identify and resolve compliance gaps before they become 483s or warning letters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <h2 class="fade-in">Where I've worked.</h2>
+    <br>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2020 —<br>Present</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h3>Independent Validation Consultant</h3>
+          <div class="timeline-company">Self-Employed</div>
+          <p>Providing end-to-end validation services for pharma and biotech clients across North America and Europe. Projects range from single equipment qualifications to full facility validation campaigns.</p>
+          <div class="tags">
+            <span class="tag">HVAC</span>
+            <span class="tag">IQ/OQ/PQ</span>
+            <span class="tag">FDA 21 CFR</span>
+            <span class="tag">EMA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2016 —<br>2020</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h3>Validation Engineer</h3>
+          <div class="timeline-company">Example Pharma Co.</div>
+          <p>Led validation activities for a multi-product sterile manufacturing facility. Managed HVAC requalification programs and supported three successful FDA inspections.</p>
+          <div class="tags">
+            <span class="tag">Sterile Mfg</span>
+            <span class="tag">Cleanroom</span>
+            <span class="tag">GMP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-date">2013 —<br>2016</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h3>Junior Validation Technician</h3>
+          <div class="timeline-company">Example Engineering Firm</div>
+          <p>Executed qualification protocols for utility systems and HVAC. Supported documentation efforts for cGMP compliance projects.</p>
+          <div class="tags">
+            <span class="tag">Utilities</span>
+            <span class="tag">Protocols</span>
+            <span class="tag">cGMP</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-layout">
+      <div class="contact-info fade-in">
+        <h2>Let's work together.</h2>
+        <p>Available for project-based engagements, short-term contracts, and ongoing validation support. Get in touch to discuss your facility's needs.</p>
+        <div class="contact-links">
+          <a href="mailto:you@email.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            you@email.com
+          </a>
+          <a href="tel:+10000000000" class="contact-link">
+            <div class="contact-link-icon">☏</div>
+            +1 (000) 000-0000
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">
+            <div class="contact-link-icon">in</div>
+            linkedin.com/in/yourprofile
+          </a>
+        </div>
+      </div>
+      <div class="contact-form fade-in">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button class="btn" id="send-btn">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Alex Morgan. All rights reserved.</p>
+    <p>Built with plain HTML & CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    // ── Hamburger menu ──
+    const toggle = document.getElementById('nav-toggle');
+    const nav    = document.getElementById('main-nav');
+    const links  = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      nav.classList.remove('open');
+      links.classList.remove('open');
+    }
+
+    // ── Contact form → mailto ──
+    document.getElementById('send-btn').addEventListener('click', function() {
+      const name    = document.getElementById('name').value.trim();
+      const email   = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+      const subject = encodeURIComponent('Enquiry from ' + name);
+      const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = 'mailto:you@email.com?subject=' + subject + '&body=' + body;
+    });
+
+    // ── Fade-in on scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
